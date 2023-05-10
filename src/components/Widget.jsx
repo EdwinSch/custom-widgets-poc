@@ -1,4 +1,5 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
 
 const Widget = ({ name, type, content }) => {
   return (
@@ -10,12 +11,22 @@ const Widget = ({ name, type, content }) => {
       background="blue.600"
       color="blue.50"
     >
-      <Heading as="h2" size="md" textAlign="center" textTransform="capitalize">
+      <Flex justifyContent="flex-end">
+        <Button colorScheme="teal" size="xs">
+          <CloseIcon />
+        </Button>
+      </Flex>
+
+      <Heading
+        as="h2"
+        size="md"
+        my={3}
+        textAlign="center"
+        textTransform="capitalize"
+      >
         {name}
       </Heading>
-      <Text pt={5} fontSize="sm">
-        {content}
-      </Text>
+      <Text fontSize="sm">{content}</Text>
     </Box>
   );
 };

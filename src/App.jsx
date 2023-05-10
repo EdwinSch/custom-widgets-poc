@@ -10,7 +10,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <Box as="main" p={5}>
+    <Box as="main" p={3}>
       <Flex flexWrap="wrap" gap={5}>
         {widgets.map((widget) => {
           return <Widget key={widget.id} {...widget} />;
