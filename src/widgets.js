@@ -18,7 +18,7 @@ const widgets = [
     name: "dolor",
     type: "weather",
     content:
-      "aporware la croix heirloom austin pinterest humblebrag jawn edison bulb meggings tofu ramps synth celiac street art big mood.",
+      "Aporware la croix heirloom austin pinterest humblebrag jawn edison bulb meggings tofu ramps synth celiac street art big mood.",
   },
   {
     id: 4,
