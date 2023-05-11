@@ -7,7 +7,7 @@ import Widget from "./components/Widget";
 import currentWidgets from "./widgetsList.js";
 // Styles
 import "./App.css";
-import { Flex, Box, Button } from "@chakra-ui/react";
+import { Flex, Box, Button, Text } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
 function App() {
@@ -44,6 +44,27 @@ function App() {
       isListLength(false);
     }
   };
+
+  if (widgets.length === 0) {
+    return (
+      <Box as="main" p={4}>
+        <Button
+          isDisabled={listLength}
+          type="button"
+          onClick={addWidget}
+          colorScheme="teal"
+          mb={6}
+          size="sm"
+          leftIcon={listLength || <AddIcon />}
+        >
+          {listLength ? "Maximum widgets reached" : "Add new widget"}
+        </Button>
+        <Text fontSize="sm" color="blue.600" fontWeight={600}>
+          No widgets on the dashboard.
+        </Text>
+      </Box>
+    );
+  }
 
   return (
     <Box as="main" p={4}>
