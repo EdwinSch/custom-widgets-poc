@@ -24,17 +24,26 @@ function App() {
     };
     setWidgets([...widgets, newWidget]);
 
+    console.log(widgets);
+
     if (widgets.length >= 8) {
       isListLength(true);
     }
   };
 
-  // const removeWidget = (id) => {
-  //   const newWidgetsList = widgetsList.filter((widget) => widget.id !== id);
-  //   console.log(id);
-  //   console.log(newWidgetsList);
-  //   setWidgetsList(newWidgetsList);
-  // };
+  const removeWidget = (id) => {
+    const newWidgetsList = widgets.filter((widget) => widget.id !== id);
+    setWidgets(newWidgetsList);
+
+    console.log(newWidgetsList);
+
+    if (newWidgetsList.length >= 8) {
+      isListLength(true);
+    }
+    if (newWidgetsList.length < 9) {
+      isListLength(false);
+    }
+  };
 
   return (
     <Box as="main" p={4}>
@@ -65,11 +74,7 @@ function App() {
       <Flex flexWrap="wrap" gap={5}>
         {widgets.map((widget) => {
           return (
-            <Widget
-              key={widget.id}
-              {...widget}
-              // removeWidget={removeWidget}
-            />
+            <Widget key={widget.id} {...widget} removeWidget={removeWidget} />
           );
         })}
       </Flex>
