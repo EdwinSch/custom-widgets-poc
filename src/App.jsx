@@ -26,9 +26,7 @@ function App() {
     };
     setWidgets([...widgets, newWidget]);
 
-    // console.log(widgets);
-
-    if (widgets.length >= 8) {
+    if (widgets.length >= 7) {
       isListLength(true);
     }
   };
@@ -37,12 +35,12 @@ function App() {
     const newWidgetsList = widgets.filter((widget) => widget.id !== id);
     setWidgets(newWidgetsList);
 
-    // console.log(newWidgetsList);
+    // console.log(widgets.length);
 
-    if (newWidgetsList.length >= 8) {
+    if (widgets.length >= 7) {
       isListLength(true);
     }
-    if (newWidgetsList.length < 9) {
+    if (widgets.length < 9) {
       isListLength(false);
     }
   };
