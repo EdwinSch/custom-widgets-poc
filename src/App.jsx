@@ -24,7 +24,7 @@ function App() {
     };
     setWidgets([...widgets, newWidget]);
 
-    console.log(widgets);
+    // console.log(widgets);
 
     if (widgets.length >= 8) {
       isListLength(true);
@@ -35,7 +35,7 @@ function App() {
     const newWidgetsList = widgets.filter((widget) => widget.id !== id);
     setWidgets(newWidgetsList);
 
-    console.log(newWidgetsList);
+    // console.log(newWidgetsList);
 
     if (newWidgetsList.length >= 8) {
       isListLength(true);
