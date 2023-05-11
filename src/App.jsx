@@ -24,8 +24,6 @@ function App() {
     };
     setWidgets([...widgets, newWidget]);
 
-    console.log(widgets.length);
-
     if (widgets.length >= 8) {
       isListLength(true);
     }
@@ -40,17 +38,29 @@ function App() {
 
   return (
     <Box as="main" p={4}>
-      <Button
-        isDisabled={false}
-        type="button"
-        onClick={addWidget}
-        colorScheme="teal"
-        mb={6}
-        size="sm"
-        leftIcon={<AddIcon />}
-      >
-        Add new widget
-      </Button>
+      {listLength ? (
+        <Button
+          isDisabled={true}
+          type="button"
+          colorScheme="teal"
+          mb={6}
+          size="sm"
+        >
+          Maximum reached
+        </Button>
+      ) : (
+        <Button
+          isDisabled={false}
+          type="button"
+          onClick={addWidget}
+          colorScheme="teal"
+          mb={6}
+          size="sm"
+          leftIcon={<AddIcon />}
+        >
+          Add new widget
+        </Button>
+      )}
 
       <Flex flexWrap="wrap" gap={5}>
         {widgets.map((widget) => {
