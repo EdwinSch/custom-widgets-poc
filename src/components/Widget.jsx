@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 
-const Widget = ({ name, type, content }) => {
+const Widget = ({ id, name, type, content, removeWidget }) => {
   return (
     <Box
       w={200}
@@ -12,7 +12,12 @@ const Widget = ({ name, type, content }) => {
       color="blue.50"
     >
       <Flex justifyContent="flex-end">
-        <Button colorScheme="teal" size="xs">
+        <Button
+          type="button"
+          colorScheme="teal"
+          size="xs"
+          onClick={() => removeWidget(id)}
+        >
           <CloseIcon />
         </Button>
       </Flex>
