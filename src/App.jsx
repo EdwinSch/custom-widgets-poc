@@ -11,8 +11,10 @@ import { Flex, Box, Button } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
 function App() {
-  const [widgets, setWidgets] = useState([...currentWidgets]);
+  const [widgets, setWidgets] = useState(currentWidgets);
   const [listLength, isListLength] = useState(false);
+
+  // console.log(widgets);
 
   const addWidget = () => {
     const newWidget = {
@@ -47,30 +49,17 @@ function App() {
 
   return (
     <Box as="main" p={4}>
-      {listLength ? (
-        <Button
-          isDisabled={listLength}
-          type="button"
-          colorScheme="teal"
-          mb={6}
-          size="sm"
-        >
-          Maximum reached
-        </Button>
-      ) : (
-        <Button
-          isDisabled={listLength}
-          type="button"
-          onClick={addWidget}
-          colorScheme="teal"
-          mb={6}
-          size="sm"
-          leftIcon={<AddIcon />}
-        >
-          Add new widget
-        </Button>
-      )}
-
+      <Button
+        isDisabled={listLength}
+        type="button"
+        onClick={addWidget}
+        colorScheme="teal"
+        mb={6}
+        size="sm"
+        leftIcon={listLength || <AddIcon />}
+      >
+        {listLength ? "Maximum widgets reached" : "Add new widget"}
+      </Button>
       <Flex flexWrap="wrap" gap={5}>
         {widgets.map((widget) => {
           return (
