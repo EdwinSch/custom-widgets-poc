@@ -40,7 +40,7 @@ function App() {
     <Box as="main" p={4}>
       {listLength ? (
         <Button
-          isDisabled={true}
+          isDisabled={listLength}
           type="button"
           colorScheme="teal"
           mb={6}
@@ -50,7 +50,7 @@ function App() {
         </Button>
       ) : (
         <Button
-          isDisabled={false}
+          isDisabled={listLength}
           type="button"
           onClick={addWidget}
           colorScheme="teal"
