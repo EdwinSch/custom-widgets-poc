@@ -36,8 +36,6 @@ function App() {
     const newWidgetsList = widgets.filter((widget) => widget.id !== id);
     setWidgets(newWidgetsList);
 
-    // console.log(widgets.length);
-
     if (widgets.length >= 7) {
       isListLength(true);
     }
