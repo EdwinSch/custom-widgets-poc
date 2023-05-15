@@ -10,6 +10,8 @@ const Widget = ({ id, name, type, content, removeWidget }) => {
       borderRadius={10}
       background="blue.600"
       color="blue.50"
+      transition="250ms ease"
+      _hover={{ cursor: "pointer" }}
     >
       <Flex justifyContent="flex-end">
         <Button

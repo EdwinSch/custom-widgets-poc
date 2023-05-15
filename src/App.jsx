@@ -3,6 +3,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 // Components
 import Widget from "./components/Widget";
+import Options from "./components/Options";
 // Data
 import currentWidgets from "./widgetsList.js";
 // Styles
@@ -20,7 +21,7 @@ function App() {
     const newWidget = {
       id: uuidv4(),
       name: "excepturi",
-      type: "new",
+      type: "new widget",
       content:
         "Gastropub narwhal authentic coloring book raw denim marxism helvetica affogato freegan franzen vexillologist. Live-edge lumbersexual banjo mixtape craft beer.",
     };
@@ -48,17 +49,22 @@ function App() {
   if (widgets.length === 0) {
     return (
       <Box as="main" p={4}>
-        <Button
-          isDisabled={listLength}
-          type="button"
-          onClick={addWidget}
-          colorScheme="teal"
-          mb={6}
-          size="sm"
-          leftIcon={listLength || <AddIcon />}
-        >
-          {listLength ? "Maximum widgets reached" : "Add new widget"}
-        </Button>
+        <Flex mb={10} gap={5} alignItems="center">
+          <Button
+            minW={150}
+            padding={5}
+            isDisabled={listLength}
+            type="button"
+            onClick={addWidget}
+            colorScheme="teal"
+            size="sm"
+            leftIcon={listLength || <AddIcon />}
+          >
+            {listLength ? "Maximum widgets reached" : "Add new widget"}
+          </Button>
+          <Options widgets={widgets} />
+        </Flex>
+
         <Text fontSize="sm" color="blue.600" fontWeight={600}>
           No widgets on the dashboard.
         </Text>
@@ -68,17 +74,22 @@ function App() {
 
   return (
     <Box as="main" p={4}>
-      <Button
-        isDisabled={listLength}
-        type="button"
-        onClick={addWidget}
-        colorScheme="teal"
-        mb={6}
-        size="sm"
-        leftIcon={listLength || <AddIcon />}
-      >
-        {listLength ? "Maximum widgets reached" : "Add new widget"}
-      </Button>
+      <Flex mb={10} gap={5} alignItems="center">
+        <Button
+          minW={150}
+          padding={5}
+          isDisabled={listLength}
+          type="button"
+          onClick={addWidget}
+          colorScheme="teal"
+          size="sm"
+          leftIcon={listLength || <AddIcon />}
+        >
+          {listLength ? "Maximum widgets reached" : "Add new widget"}
+        </Button>
+        <Options widgets={widgets} />
+      </Flex>
+
       <Flex flexWrap="wrap" gap={5}>
         {widgets.map((widget) => {
           return (
