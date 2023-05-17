@@ -1,5 +1,5 @@
 import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
-import { CloseIcon } from "@chakra-ui/icons";
+import { CloseIcon, DragHandleIcon } from "@chakra-ui/icons";
 
 const Widget = ({ id, name, type, content, removeWidget }) => {
   return (
@@ -10,10 +10,18 @@ const Widget = ({ id, name, type, content, removeWidget }) => {
       borderRadius={10}
       background="blue.600"
       color="blue.50"
-      transition="250ms ease"
-      _hover={{ cursor: "pointer" }}
+      // transition="250ms ease"
     >
-      <Flex justifyContent="flex-end">
+      <Flex justifyContent="space-between">
+        <Button
+          type="button"
+          colorScheme="teal"
+          size="xs"
+          _hover={{ cursor: "move", background: "darkGreen" }}
+        >
+          <DragHandleIcon />
+        </Button>
+
         <Button
           type="button"
           colorScheme="teal"
@@ -27,7 +35,7 @@ const Widget = ({ id, name, type, content, removeWidget }) => {
       <Heading
         as="h2"
         size="md"
-        my={3}
+        my={4}
         textAlign="center"
         textTransform="capitalize"
       >
